@@ -24,7 +24,6 @@
             padding: 0 20px;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: white;
@@ -52,7 +51,6 @@
             font-size: 0.9rem;
         }
 
-        /* Sections */
         section {
             padding: 50px 0;
             border-bottom: 1px solid #e1e8ed;
@@ -79,7 +77,6 @@
             border-radius: 2px;
         }
 
-        /* About */
         .about-content {
             display: flex;
             gap: 40px;
@@ -116,7 +113,6 @@
             font-size: 0.85rem;
         }
 
-        /* Projects */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -176,7 +172,6 @@
             text-decoration: underline;
         }
 
-        /* Experience */
         .exp-item {
             background: white;
             padding: 20px;
@@ -197,7 +192,6 @@
             margin: 5px 0 10px;
         }
 
-        /* Contacts */
         .contacts {
             display: flex;
             gap: 20px;
@@ -225,12 +219,27 @@
             color: #e94560;
         }
 
-        /* Footer */
         footer {
             background: #1a1a2e;
             color: white;
             text-align: center;
             padding: 30px 0;
+        }
+
+        .featured {
+            border: 2px solid #e94560;
+            background: linear-gradient(135deg, #fff 0%, #fff5f7 100%);
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
         }
 
         @media (max-width: 768px) {
@@ -244,20 +253,20 @@
     <header>
         <div class="container">
             <h1>👋 Александр</h1>
-            <p>Python-разработчик | QA Automation | Backend Developer</p>
+            <p>Python-разработчик | Fullstack | AI Integration</p>
             <div class="badge">12+ лет в производстве → в IT</div>
         </div>
     </header>
 
     <div class="container">
-        <!-- О себе -->
         <section>
             <h2>О себе</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p>Привет! Я Python-разработчик с уникальным бэкграундом: 12 лет управлял производством и внедрял автоматизацию на заводе. Теперь пишу код, который решает реальные задачи.</p>
-                    <p>Прошёл полный курс Python-разработки (38 тем с домашними заданиями): от основ ООП до Docker и Django REST Framework. Пишу Telegram-ботов, парсеров, веб-приложения на Flask/Django, автотесты на Selenium + Pytest.</p>
-                    <p>Ищу позицию Junior Python Developer, где смогу применить свои знания и опыт в реальных проектах.</p>
+                    <p>Прошёл полный курс Python-разработки (38 тем). Также освоил <strong>React + TypeScript + Tailwind</strong> для создания современных веб-приложений.</p>
+                    <p>В проекте <strong>«AI АгроКонсультант»</strong> интегрировал Google Gemini API и Supabase, создав полноценное приложение с тёмной темой и сохранением истории чатов.</p>
+                    <p>Ищу позицию Junior Python Developer / Junior Fullstack Developer.</p>
                 </div>
                 <div class="skills">
                     <h3>🛠 Технологии</h3>
@@ -268,22 +277,16 @@
                         <span class="skill-tag">DRF</span>
                         <span class="skill-tag">SQLAlchemy</span>
                         <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">Supabase</span>
+                        <span class="skill-tag">Gemini API</span>
+                        <span class="skill-tag">Docker</span>
                         <span class="skill-tag">Selenium</span>
                         <span class="skill-tag">Pytest</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub Actions</span>
-                        <span class="skill-tag">REST API</span>
-                        <span class="skill-tag">Telegram API</span>
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">Bootstrap</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Опыт работы -->
         <section>
             <h2>💼 Опыт работы</h2>
             <div class="exp-item">
@@ -292,29 +295,38 @@
                 <p>• Внедрил систему анализа дефицита материалов в реальном времени</p>
                 <p>• Разработал трекинг изделий по номеру договора</p>
                 <p>• Автоматизировал передачу сопроводительной документации</p>
-                <p>• Руковожу штатом 35 человек (навыки коммуникации и управления)</p>
+                <p>• Руководил штатом 35 человек</p>
                 <p>• Благодарственное письмо Ярославского муниципального района (2018)</p>
             </div>
         </section>
 
-        <!-- Проекты -->
         <section>
             <h2>📁 Проекты</h2>
             <div class="projects-grid">
-                <!-- Проект 1: HH.ru Парсер -->
+                <div class="project-card featured">
+                    <div class="project-title">🌾 AI АгроКонсультант <span class="featured-badge">⭐ Лучший</span></div>
+                    <div class="project-tech">
+                        <span class="tech">React 19</span>
+                        <span class="tech">TypeScript</span>
+                        <span class="tech">TailwindCSS</span>
+                        <span class="tech">Gemini API</span>
+                        <span class="tech">Supabase</span>
+                    </div>
+                    <div class="project-desc">AI-помощник для фермеров. Тёмная/светлая тема, сохранение чатов в Supabase, адаптивный дизайн.</div>
+                    <a href="https://github.com/Beluncho/AI_Agroconsultant" class="project-link" target="_blank">GitHub →</a>
+                </div>
+
                 <div class="project-card">
                     <div class="project-title">📊 HH.ru Парсер + Flask</div>
                     <div class="project-tech">
                         <span class="tech">Flask</span>
                         <span class="tech">SQLAlchemy</span>
                         <span class="tech">Bootstrap</span>
-                        <span class="tech">API</span>
                     </div>
-                    <div class="project-desc">Веб-приложение для анализа вакансий с hh.ru: средние зарплаты, топ-5 навыков, конвертация валют, сохранение в БД.</div>
+                    <div class="project-desc">Анализ вакансий: средние зарплаты, топ-5 навыков, конвертация валют.</div>
                     <a href="https://github.com/Beluncho/hh_flask" class="project-link" target="_blank">GitHub →</a>
                 </div>
 
-                <!-- Проект 2: Русское лото -->
                 <div class="project-card">
                     <div class="project-title">🎲 Русское лото (ООП)</div>
                     <div class="project-tech">
@@ -322,11 +334,10 @@
                         <span class="tech">ООП</span>
                         <span class="tech">Pytest</span>
                     </div>
-                    <div class="project-desc">Консольная игра с мешком чисел, карточками, игроками (человек и компьютер). Покрыта юнит-тестами.</div>
+                    <div class="project-desc">Консольная игра с мешком чисел, карточками, игроками. Покрыта тестами.</div>
                     <a href="https://github.com/Beluncho/LotoGame" class="project-link" target="_blank">GitHub →</a>
                 </div>
 
-                <!-- Проект 3: Pythondigest Парсер -->
                 <div class="project-card">
                     <div class="project-title">📰 Pythondigest Парсер + Telegram Bot</div>
                     <div class="project-tech">
@@ -335,10 +346,9 @@
                         <span class="tech">Telegram API</span>
                     </div>
                     <div class="project-desc">Парсер новостей Python и Telegram-бот с командами /parsing, /file, реверсом текста.</div>
-                    <a href="https://github.com/Beluncho/pythondigest_parser" class="project-link" target="_blank">GitHub →</a>
+                    <a href="https://github.com/Beluncho/pythondigest_parser_telegram_bot" class="project-link" target="_blank">GitHub →</a>
                 </div>
 
-                <!-- Проект 4: Автотесты магазина -->
                 <div class="project-card">
                     <div class="project-title">🧪 Автотесты интернет-магазина</div>
                     <div class="project-tech">
@@ -346,23 +356,10 @@
                         <span class="tech">Pytest</span>
                         <span class="tech">POM</span>
                     </div>
-                    <div class="project-desc">Page Object Model, регистрация, корзина, параметризация --language, маркеры, ожидания.</div>
+                    <div class="project-desc">Page Object Model, регистрация, корзина, параметризация --language.</div>
                     <a href="https://github.com/Beluncho/StepicSeleniumFinal" class="project-link" target="_blank">GitHub →</a>
                 </div>
 
-                <!-- Проект 5: Файловый менеджер -->
-                <div class="project-card">
-                    <div class="project-title">📁 Файловый менеджер + Викторина</div>
-                    <div class="project-tech">
-                        <span class="tech">Python</span>
-                        <span class="tech">os/shutil</span>
-                        <span class="tech">Pytest</span>
-                    </div>
-                    <div class="project-desc">Консольное приложение: создание/удаление/копирование файлов, историческая викторина, калькулятор баланса.</div>
-                    <a href="https://github.com/Beluncho/lesson6_test" class="project-link" target="_blank">GitHub →</a>
-                </div>
-
-                <!-- Проект 6: Автотесты Saby.ru -->
                 <div class="project-card">
                     <div class="project-title">🧪 Автотесты Saby.ru</div>
                     <div class="project-tech">
@@ -370,31 +367,38 @@
                         <span class="tech">Pytest</span>
                         <span class="tech">POM</span>
                     </div>
-                    <div class="project-desc">3 сценария: переход на Тензор, смена региона (Камчатка), скачивание файла с проверкой размера.</div>
-                    <a href="https://github.com/Beluncho/saby_tests" class="project-link" target="_blank">GitHub →</a>
+                    <div class="project-desc">3 сценария: переход на Тензор, смена региона, скачивание файла.</div>
+                    <a href="https://github.com/Beluncho/Selenium-WebDriver-Pytest" class="project-link" target="_blank">GitHub →</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">🐍 HH_Django</div>
+                    <div class="project-tech">
+                        <span class="tech">Django</span>
+                        <span class="tech">PostgreSQL</span>
+                    </div>
+                    <div class="project-desc">Веб-приложение для анализа вакансий на Django (альтернативная версия).</div>
+                    <a href="https://github.com/Beluncho/HH_Django" class="project-link" target="_blank">GitHub →</a>
                 </div>
             </div>
         </section>
 
-        <!-- Образование и курсы -->
         <section>
             <h2>📚 Образование и курсы</h2>
             <div class="exp-item">
                 <div class="exp-title">Ярославский государственный технический университет</div>
-                <div class="exp-date">2013 — инженер по специальности «Технология машиностроения»</div>
+                <div class="exp-date">2013 — инженер «Технология машиностроения»</div>
             </div>
             <div class="exp-item">
-                <div class="exp-title">Python-разработчик (38 тем, с ДЗ)</div>
-                <div class="exp-date">Neural University (2026)</div>
+                <div class="exp-title">Python-разработчик (38 тем)</div>
                 <div class="exp-date">ООП, Django, Flask, DRF, SQLAlchemy, Docker, тестирование</div>
             </div>
             <div class="exp-item">
-                <div class="exp-title">Автоматизация тестирования с Selenium + Python</div>
+                <div class="exp-title">Автоматизация тестирования Selenium + Python</div>
                 <div class="exp-date">Stepik (2025)</div>
             </div>
         </section>
 
-        <!-- Контакты -->
         <section>
             <h2>📫 Контакты</h2>
             <div class="contacts">
@@ -408,7 +412,7 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 Александр. Python-разработчик.</p>
+            <p>© 2025 Александр. Python-разработчик | Fullstack | AI Integration</p>
         </div>
     </footer>
 </body>
