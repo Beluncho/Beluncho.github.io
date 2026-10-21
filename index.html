@@ -160,6 +160,15 @@
             margin-bottom: 15px;
         }
 
+        .project-metrics {
+            color: #1a1a2e;
+            background: #eef2f7;
+            border-radius: 8px;
+            padding: 6px 10px;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+        }
+
         .project-link {
             display: inline-block;
             color: #e94560;
@@ -190,6 +199,88 @@
             color: #e94560;
             font-size: 0.85rem;
             margin: 5px 0 10px;
+        }
+
+        .exp-item .project-link {
+            margin-top: 8px;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .doc-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .doc-thumb {
+            display: block;
+            background: #eef2f7;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+        .doc-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .doc-body {
+            padding: 14px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .doc-title {
+            font-weight: 600;
+            color: #1a1a2e;
+            font-size: 0.95rem;
+            display: block;
+        }
+
+        .doc-sub {
+            color: #666;
+            font-size: 0.82rem;
+            margin: 4px 0 10px;
+            display: block;
+        }
+
+        .doc-body .project-link {
+            margin-top: auto;
+        }
+
+        .internship-lead {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .internship-lead p {
+            margin-bottom: 10px;
+        }
+
+        .internship-lead p:last-child {
+            margin-bottom: 0;
         }
 
         .contacts {
@@ -246,6 +337,7 @@
             header h1 { font-size: 2rem; }
             h2 { font-size: 1.5rem; }
             .projects-grid { grid-template-columns: 1fr; }
+            .docs-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -264,8 +356,9 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>Привет! Я Python-разработчик с уникальным бэкграундом: 12 лет управлял производством и внедрял автоматизацию на заводе. Теперь пишу код, который решает реальные задачи.</p>
-                    <p>Прошёл полный курс Python-разработки (38 тем) УИИ "Терра"</p>
-                    <p>В проекте <strong>«AI АгроКонсультант (Продажник)»</strong> интегрировал Google Gemini API и парсинг реального сайта производителя, создав полноценный AI-помощник с витриной техники и прокси для картинок.</p>
+                    <p>Прошёл два курса Terra AI University: <strong>«Python-разработчик»</strong> (32 темы, 2023–2026) и <strong>«VibeCoding»</strong> (20 тем, 2026). Сертификаты — в разделе «Образование».</p>
+                    <p>Защитил два диплома на одном проекте: платформа поиска работы на Django и AI-модуль, который анализирует требования вакансий, объясняет навыки через RAG и проводит тестовое собеседование.</p>
+                    <p>Для «Новахим» разработал сервис извлечения технических характеристик из паспортов и ТЗ. Обе фазы внедрены в production — благодарственные письма ниже.</p>
                     <p>Ищу позицию Junior Python Developer / Junior Fullstack Developer.</p>
                 </div>
                 <div class="skills">
@@ -273,14 +366,18 @@
                     <div>
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">Django</span>
-                        <span class="skill-tag">Flask</span>
                         <span class="skill-tag">DRF</span>
-                        <span class="skill-tag">SQLAlchemy</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Flask</span>
                         <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">SQLAlchemy</span>
                         <span class="skill-tag">Supabase</span>
                         <span class="skill-tag">Docker</span>
                         <span class="skill-tag">Selenium</span>
                         <span class="skill-tag">Pytest</span>
+                        <span class="skill-tag">LLM / RAG</span>
+                        <span class="skill-tag">PyMuPDF</span>
+                        <span class="skill-tag">Fabric.js</span>
                     </div>
                 </div>
             </div>
@@ -302,36 +399,56 @@
         <section>
             <h2>📁 Проекты</h2>
             <div class="projects-grid">
-                <!-- Featured: AI АгроКонсультант Продажник -->
+                <!-- 1. HH Django + AI-модуль -->
                 <div class="project-card featured">
-                    <div class="project-title">🌾 AI АгроКонсультант (Продажник) <span class="featured-badge">⭐ Лучший</span></div>
+                    <div class="project-title">🐍 HH Django + AI-модуль <span class="featured-badge">⭐ Главный проект</span></div>
+                    <div class="project-tech">
+                        <span class="tech">Django</span>
+                        <span class="tech">DRF</span>
+                        <span class="tech">PostgreSQL</span>
+                        <span class="tech">Docker</span>
+                        <span class="tech">LLM / RAG</span>
+                        <span class="tech">Pytest</span>
+                    </div>
+                    <div class="project-desc">Платформа поиска работы и сотрудников — первый диплом. Второй диплом: AI-модуль анализа вакансий, объяснения навыков через RAG и тестового собеседования. REST API, HH API, PostgreSQL, Docker, Nginx.</div>
+                    <div class="project-metrics">2 диплома · 12 моделей AI-модуля · 90 тестов · презентация защиты</div>
+                    <a href="https://github.com/Beluncho/HH_Django" class="project-link" target="_blank">GitHub →</a>
+                    <a href="https://beluncho.github.io/HH_Django/" class="project-link" target="_blank">Презентация →</a>
+                </div>
+
+                <!-- 2. tech-docs-reader -->
+                <div class="project-card">
+                    <div class="project-title">📄 Tech Docs Reader</div>
+                    <div class="project-tech">
+                        <span class="tech">FastAPI</span>
+                        <span class="tech">PyMuPDF</span>
+                        <span class="tech">PaddleOCR</span>
+                        <span class="tech">Fabric.js</span>
+                        <span class="tech">YandexGPT</span>
+                        <span class="tech">Docker</span>
+                        <span class="tech">Pytest</span>
+                    </div>
+                    <div class="project-desc">Извлечение технических характеристик из паспортов, сертификатов и ТЗ. Каждый параметр — со значением, единицей и цитатой-источником. Детекция таблиц, OCR сканов, визуальный маппинг ячеек и LLM-ассистент.</div>
+                    <div class="project-metrics">43 документа · 30 с найденными параметрами · 190 тестов</div>
+                    <a href="https://github.com/Beluncho/tech-docs-reader" class="project-link" target="_blank">GitHub →</a>
+                </div>
+
+                <!-- 3. AI АгроКонсультант -->
+                <div class="project-card">
+                    <div class="project-title">🌾 AI АгроКонсультант</div>
                     <div class="project-tech">
                         <span class="tech">React 19</span>
                         <span class="tech">TypeScript</span>
-                        <span class="tech">TailwindCSS</span>
                         <span class="tech">Gemini API</span>
                         <span class="tech">FastAPI</span>
-                        <span class="tech">Colab + Tunnel</span>
-                    </div>
-                    <div class="project-desc">AI-помощник для агробизнеса. Чат с AI + витрина техники из реального парсинга сайта pkyar.ru. Прокси для картинок, тёмная тема, лог панель отладки.</div>
-                    <a href="https://github.com/Beluncho/AI_Agro_cons_sale" class="project-link" target="_blank">GitHub →</a>
-                </div>
-
-                <!-- Проект 2: AI АгроКонсультант (версия с Supabase) -->
-                <div class="project-card">
-                    <div class="project-title">🌾 AI АгроКонсультант (Supabase)</div>
-                    <div class="project-tech">
-                        <span class="tech">React 19</span>
-                        <span class="tech">TypeScript</span>
-                        <span class="tech">TailwindCSS</span>
-                        <span class="tech">Gemini API</span>
                         <span class="tech">Supabase</span>
                     </div>
-                    <div class="project-desc">AI-помощник для фермеров. Тёмная/светлая тема, сохранение чатов в Supabase, адаптивный дизайн.</div>
-                    <a href="https://github.com/Beluncho/AI_Agroconsultant" class="project-link" target="_blank">GitHub →</a>
+                    <div class="project-desc">AI-помощник для агробизнеса: консультации по регионам и культурам, витрина техники из реального парсинга, история чатов. Две версии: с бэкендом на FastAPI и с хранением в Supabase.</div>
+                    <a href="https://github.com/Beluncho/AI_Agro_cons_sale" class="project-link" target="_blank">Gemini + парсинг →</a>
+                    <a href="https://github.com/Beluncho/AI_Agroconsultant" class="project-link" target="_blank">Supabase →</a>
                 </div>
 
-                <!-- Проект 3: HH.ru Парсер -->
+                <!-- 4. HH.ru Парсер -->
                 <div class="project-card">
                     <div class="project-title">📊 HH.ru Парсер + Flask</div>
                     <div class="project-tech">
@@ -343,7 +460,20 @@
                     <a href="https://github.com/Beluncho/hh_flask" class="project-link" target="_blank">GitHub →</a>
                 </div>
 
-                <!-- Проект 4: Русское лото -->
+                <!-- 5. Автотесты Selenium + POM -->
+                <div class="project-card">
+                    <div class="project-title">🧪 Автотесты Selenium + POM</div>
+                    <div class="project-tech">
+                        <span class="tech">Selenium</span>
+                        <span class="tech">Pytest</span>
+                        <span class="tech">POM</span>
+                    </div>
+                    <div class="project-desc">Page Object Model: регистрация, корзина, параметризация языка; отдельный набор сценариев для Saby.ru — переходы, смена региона, скачивание файла.</div>
+                    <a href="https://github.com/Beluncho/StepicSeleniumFinal" class="project-link" target="_blank">Магазин →</a>
+                    <a href="https://github.com/Beluncho/Selenium-WebDriver-Pytest" class="project-link" target="_blank">Saby.ru →</a>
+                </div>
+
+                <!-- 6. Русское лото -->
                 <div class="project-card">
                     <div class="project-title">🎲 Русское лото (ООП)</div>
                     <div class="project-tech">
@@ -355,7 +485,7 @@
                     <a href="https://github.com/Beluncho/LotoGame" class="project-link" target="_blank">GitHub →</a>
                 </div>
 
-                <!-- Проект 5: Pythondigest Парсер -->
+                <!-- 7. Pythondigest -->
                 <div class="project-card">
                     <div class="project-title">📰 Pythondigest Парсер + Telegram Bot</div>
                     <div class="project-tech">
@@ -365,41 +495,6 @@
                     </div>
                     <div class="project-desc">Парсер новостей Python и Telegram-бот с командами /parsing, /file, реверсом текста.</div>
                     <a href="https://github.com/Beluncho/pythondigest_parser_telegram_bot" class="project-link" target="_blank">GitHub →</a>
-                </div>
-
-                <!-- Проект 6: Автотесты магазина -->
-                <div class="project-card">
-                    <div class="project-title">🧪 Автотесты интернет-магазина</div>
-                    <div class="project-tech">
-                        <span class="tech">Selenium</span>
-                        <span class="tech">Pytest</span>
-                        <span class="tech">POM</span>
-                    </div>
-                    <div class="project-desc">Page Object Model, регистрация, корзина, параметризация --language.</div>
-                    <a href="https://github.com/Beluncho/StepicSeleniumFinal" class="project-link" target="_blank">GitHub →</a>
-                </div>
-
-                <!-- Проект 7: Автотесты Saby.ru -->
-                <div class="project-card">
-                    <div class="project-title">🧪 Автотесты Saby.ru</div>
-                    <div class="project-tech">
-                        <span class="tech">Selenium</span>
-                        <span class="tech">Pytest</span>
-                        <span class="tech">POM</span>
-                    </div>
-                    <div class="project-desc">3 сценария: переход на Тензор, смена региона, скачивание файла.</div>
-                    <a href="https://github.com/Beluncho/Selenium-WebDriver-Pytest" class="project-link" target="_blank">GitHub →</a>
-                </div>
-
-                <!-- Проект 8: HH_Django -->
-                <div class="project-card">
-                    <div class="project-title">🐍 HH_Django</div>
-                    <div class="project-tech">
-                        <span class="tech">Django</span>
-                        <span class="tech">PostgreSQL</span>
-                    </div>
-                    <div class="project-desc">Веб-приложение для анализа вакансий на Django (альтернативная версия).</div>
-                    <a href="https://github.com/Beluncho/HH_Django" class="project-link" target="_blank">GitHub →</a>
                 </div>
             </div>
         </section>
@@ -411,13 +506,88 @@
                 <div class="exp-date">2013 — инженер «Технология машиностроения»</div>
             </div>
             <div class="exp-item">
-                <div class="exp-title">Python-разработчик (38 тем)</div>
-                <div class="exp-date">Neural University (2026)</div>
-                <div class="exp-date">ООП, Django, Flask, DRF, SQLAlchemy, Docker, тестирование</div>
+                <div class="exp-title">Python-разработчик (32 темы)</div>
+                <div class="exp-date">ООО «Терра ЭйАй» · Terra AI University, 26.05.2026</div>
+                <div class="exp-date">16.10.2023 — 24.05.2026 · ООП, Django, Flask, DRF, SQLAlchemy, Docker, тестирование</div>
+                <a href="assets/docs/certificate-python.pdf" class="project-link" target="_blank" rel="noopener">📄 Сертификат →</a>
             </div>
             <div class="exp-item">
-                <div class="exp-title">Автоматизация тестирования Selenium + Python</div>
-                <div class="exp-date">Stepik (2025)</div>
+                <div class="exp-title">VibeCoding (20 тем)</div>
+                <div class="exp-date">ООО «Терра ЭйАй» · Terra AI University, 26.05.2026</div>
+                <div class="exp-date">18.04.2026 — 26.05.2026 · разработка с AI-ассистентами</div>
+                <a href="assets/docs/certificate-vibecoding.pdf" class="project-link" target="_blank" rel="noopener">📄 Сертификат →</a>
+            </div>
+            <div class="exp-item">
+                <div class="exp-title">Автоматизация тестирования с помощью Selenium и Python</div>
+                <div class="exp-date">Stepik, 10.01.2025 · с отличием</div>
+                <a href="https://stepik.org/cert/2724437" class="project-link" target="_blank" rel="noopener">📄 Сертификат →</a>
+            </div>
+            <div class="exp-item">
+                <div class="exp-title">Docker для начинающих + практический опыт</div>
+                <div class="exp-date">Stepik, 13.04.2025 · с отличием</div>
+                <a href="https://stepik.org/cert/2817987" class="project-link" target="_blank" rel="noopener">📄 Сертификат →</a>
+            </div>
+
+            <div class="docs-grid" style="margin-top: 25px;">
+                <a class="doc-card" href="assets/docs/certificate-python.pdf" target="_blank" rel="noopener">
+                    <span class="doc-thumb"><img src="assets/docs/previews/certificate-python.jpg" alt="Сертификат Python-разработчик" loading="lazy"></span>
+                    <span class="doc-body">
+                        <span class="doc-title">Python-разработчик</span>
+                        <span class="doc-sub">Terra AI University · 26.05.2026</span>
+                        <span class="project-link">Открыть PDF →</span>
+                    </span>
+                </a>
+                <a class="doc-card" href="assets/docs/certificate-vibecoding.pdf" target="_blank" rel="noopener">
+                    <span class="doc-thumb"><img src="assets/docs/previews/certificate-vibecoding.jpg" alt="Сертификат VibeCoding" loading="lazy"></span>
+                    <span class="doc-body">
+                        <span class="doc-title">VibeCoding</span>
+                        <span class="doc-sub">Terra AI University · 26.05.2026</span>
+                        <span class="project-link">Открыть PDF →</span>
+                    </span>
+                </a>
+                <a class="doc-card" href="https://stepik.org/cert/2724437" target="_blank" rel="noopener">
+                    <span class="doc-thumb"><img src="assets/docs/stepic-Selenium.jpg" alt="Сертификат Stepik: Selenium и Python" loading="lazy"></span>
+                    <span class="doc-body">
+                        <span class="doc-title">Selenium + Python</span>
+                        <span class="doc-sub">Stepik · 10.01.2025 · с отличием</span>
+                        <span class="project-link">Открыть на Stepik →</span>
+                    </span>
+                </a>
+                <a class="doc-card" href="https://stepik.org/cert/2817987" target="_blank" rel="noopener">
+                    <span class="doc-thumb"><img src="assets/docs/stepic-docker.jpg" alt="Сертификат Stepik: Docker для начинающих" loading="lazy"></span>
+                    <span class="doc-body">
+                        <span class="doc-title">Docker для начинающих</span>
+                        <span class="doc-sub">Stepik · 13.04.2025 · с отличием</span>
+                        <span class="project-link">Открыть на Stepik →</span>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>🤝 Стажировка в «Новахим»</h2>
+            <div class="internship-lead">
+                <p>Стажировка по направлению автоматизации подбора и сопоставления технических характеристик оборудования.</p>
+                <p><strong>Фаза 2</strong> — система автоматизированного сопоставления технических характеристик оборудования. <strong>Фаза 3</strong> — подбор оборудования по прайс-листам с интеграцией Bitrix24. Обе системы внедрены в production.</p>
+                <p>Мой вклад: извлечение параметров из PDF и таблиц, определение структуры таблиц, визуальный маппинг, подготовка данных и проверка результатов.</p>
+            </div>
+            <div class="docs-grid">
+                <a class="doc-card" href="assets/docs/letter-phase-2.pdf" target="_blank" rel="noopener">
+                    <span class="doc-thumb"><img src="assets/docs/previews/letter-phase-2.jpg" alt="Благодарственное письмо Новахим, фаза 2" loading="lazy"></span>
+                    <span class="doc-body">
+                        <span class="doc-title">Благодарственное письмо — Фаза 2</span>
+                        <span class="doc-sub">Новахим · 08.10.2026 · сопоставление характеристик</span>
+                        <span class="project-link">Открыть PDF →</span>
+                    </span>
+                </a>
+                <a class="doc-card" href="assets/docs/letter-phase-3.pdf" target="_blank" rel="noopener">
+                    <span class="doc-thumb"><img src="assets/docs/previews/letter-phase-3.jpg" alt="Благодарственное письмо Новахим, фаза 3" loading="lazy"></span>
+                    <span class="doc-body">
+                        <span class="doc-title">Благодарственное письмо — Фаза 3</span>
+                        <span class="doc-sub">Новахим · 08.10.2026 · подбор по прайс-листам, Bitrix24</span>
+                        <span class="project-link">Открыть PDF →</span>
+                    </span>
+                </a>
             </div>
         </section>
 
@@ -434,7 +604,7 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 Александр. Python-разработчик | Fullstack | AI Integration</p>
+            <p>© 2026 Александр. Python-разработчик | Fullstack | AI Integration</p>
         </div>
     </footer>
 </body>
