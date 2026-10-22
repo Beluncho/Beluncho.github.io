@@ -34,6 +34,55 @@
         header h1 {
             font-size: 3rem;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            flex: 0 0 auto;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .hero-icon {
+            width: 1.05em;
+            height: 1.05em;
+            color: #ff7189;
+        }
+
+        .section-icon,
+        .project-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #e94560;
+            background: #fff0f3;
+            border: 1px solid #ffd8df;
+            border-radius: 10px;
+        }
+
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            padding: 7px;
+        }
+
+        .project-icon {
+            width: 34px;
+            height: 34px;
+            padding: 7px;
+        }
+
+        .inline-icon {
+            width: 1.05em;
+            height: 1.05em;
+            vertical-align: -0.15em;
+            margin-right: 6px;
         }
 
         header p {
@@ -102,6 +151,9 @@
         .skills h3 {
             margin-bottom: 15px;
             color: #e94560;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .skill-tag {
@@ -137,6 +189,10 @@
             font-weight: 600;
             margin-bottom: 10px;
             color: #1a1a2e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .project-tech {
@@ -323,13 +379,15 @@
         }
 
         .featured-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             background: #e94560;
             color: white;
             font-size: 0.7rem;
             padding: 2px 8px;
             border-radius: 20px;
-            margin-left: 10px;
+            margin-left: auto;
             vertical-align: middle;
         }
 
@@ -342,9 +400,74 @@
     </style>
 </head>
 <body>
+    <svg aria-hidden="true" style="display: none;">
+        <symbol id="icon-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v7"/><path d="M10 10.5V6a2 2 0 0 0-4 0v6"/><path d="M6 12v-2a2 2 0 1 0-4 0v6a6 6 0 0 0 6 6h2c4.4 0 8-3.6 8-8v-3a2 2 0 1 0-4 0v1"/>
+        </symbol>
+        <symbol id="icon-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M14.7 6.3a4 4 0 0 0-5-5L12 3.6 8.4 7.2 6.1 4.9a4 4 0 0 0 5 5l7.8 7.8a2.1 2.1 0 0 1-3 3l-7.8-7.8"/><path d="m5 21 4.5-4.5"/>
+        </symbol>
+        <symbol id="icon-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/>
+        </symbol>
+        <symbol id="icon-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>
+        </symbol>
+        <symbol id="icon-code" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/>
+        </symbol>
+        <symbol id="icon-file-search" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h7M14 2v6h6"/><circle cx="17" cy="17" r="3"/><path d="m19.5 19.5 2 2"/>
+        </symbol>
+        <symbol id="icon-sprout" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M7 20h10M12 20v-8M12 12C7.5 12 5 9.5 5 5c4.5 0 7 2.5 7 7ZM12 15c4.5 0 7-2.5 7-7-4.5 0-7 2.5-7 7Z"/>
+        </symbol>
+        <symbol id="icon-coffee" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5ZM17 10h1a3 3 0 0 1 0 6h-1M6 2v2M10 2v2M14 2v2"/>
+        </symbol>
+        <symbol id="icon-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="7" width="18" height="13" rx="2"/><path d="M12 3v4M8 12h.01M16 12h.01M8 16h8"/>
+        </symbol>
+        <symbol id="icon-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/>
+        </symbol>
+        <symbol id="icon-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 3h6M10 3v6l-5.5 9.5A2 2 0 0 0 6.2 22h11.6a2 2 0 0 0 1.7-3.5L14 9V3M7 16h10"/>
+        </symbol>
+        <symbol id="icon-dice" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1" fill="currentColor"/><circle cx="16" cy="8" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="8" cy="16" r="1" fill="currentColor"/><circle cx="16" cy="16" r="1" fill="currentColor"/>
+        </symbol>
+        <symbol id="icon-newspaper" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 5h14v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2ZM18 9h2v10a2 2 0 0 0 2 2M8 9h6M8 13h6M8 17h3"/>
+        </symbol>
+        <symbol id="icon-graduation" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="m2 10 10-5 10 5-10 5ZM6 12v5c3 2 9 2 12 0v-5M22 10v6"/>
+        </symbol>
+        <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8ZM14 2v6h6M8 13h8M8 17h6"/>
+        </symbol>
+        <symbol id="icon-handshake" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="m11 17 2 2a2.8 2.8 0 0 0 4-4l-3.1-3.1a2 2 0 0 0-2.8 0L10 13a2 2 0 0 1-2.8-2.8l3.3-3.3a4 4 0 0 1 5-.5l.7.5M16 7l2-2 4 4-2 2M8 7 6 5 2 9l2 2M5 10l5 5"/>
+        </symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>
+        </symbol>
+        <symbol id="icon-github" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.63.07-.62.07-.62 1 .08 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.32 9.32 0 0 1 12 6.97c.85 0 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.25 10.25 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/>
+        </symbol>
+        <symbol id="icon-telegram" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M21.6 3.2a1.6 1.6 0 0 0-1.65-.28L3.1 9.42c-1.16.45-1.14 1.1-.2 1.39l4.3 1.34 1.66 5.13c.2.57.1.8.68.8.45 0 .65-.2.9-.45l2.08-2.02 4.33 3.2c.8.44 1.37.21 1.57-.74l2.84-13.4c.3-1.17-.44-1.7-1.17-1.37L7.43 11.05c-.87.35-.86.84-.16 1.05l3.25 1.01 7.55-4.76c.36-.22.68-.1.42.13l-6.11 5.52-.24 3.48c.35 0 .5-.16.7-.35l1.68-1.63 3.5 2.59 2.02-12.72L9.95 12.5"/>
+        </symbol>
+        <symbol id="icon-user-file" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8ZM14 2v6h6"/><circle cx="10" cy="13" r="2"/><path d="M7 19a3 3 0 0 1 6 0"/>
+        </symbol>
+        <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="m12 2.5 3 6.1 6.7 1-4.9 4.7 1.2 6.7-6-3.2-6 3.2 1.2-6.7-4.9-4.7 6.7-1Z"/>
+        </symbol>
+    </svg>
     <header>
         <div class="container">
-            <h1>👋 Александр</h1>
+            <h1><svg class="icon hero-icon" aria-hidden="true"><use href="#icon-hand"></use></svg><span>Александр</span></h1>
             <p>Python-разработчик | Fullstack | AI Integration</p>
             <div class="badge">13 лет в производстве → в IT</div>
         </div>
@@ -362,7 +485,7 @@
                     <p>Ищу позицию Junior Python Developer / Junior Fullstack Developer.</p>
                 </div>
                 <div class="skills">
-                    <h3>🛠 Технологии</h3>
+                    <h3><svg class="icon" aria-hidden="true"><use href="#icon-tools"></use></svg>Технологии</h3>
                     <div>
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">Django</span>
@@ -384,7 +507,7 @@
         </section>
 
         <section>
-            <h2>💼 Опыт работы</h2>
+            <h2><svg class="icon section-icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg>Опыт работы</h2>
             <div class="exp-item">
                 <div class="exp-title">ПК «Ярославич» — Старший мастер производства / Инженер АСУ</div>
                 <div class="exp-date">Сентябрь 2013 — сентябрь 2026 (13 лет)</div>
@@ -397,11 +520,11 @@
         </section>
 
         <section>
-            <h2>📁 Проекты</h2>
+            <h2><svg class="icon section-icon" aria-hidden="true"><use href="#icon-folder"></use></svg>Проекты</h2>
             <div class="projects-grid">
                 <!-- 1. HH Django + AI-модуль -->
                 <div class="project-card featured">
-                    <div class="project-title">🐍 HH Django + AI-модуль <span class="featured-badge">⭐ Главный проект</span></div>
+                    <div class="project-title"><svg class="icon project-icon" aria-hidden="true"><use href="#icon-code"></use></svg><span>HH Django + AI-модуль</span><span class="featured-badge"><svg class="icon" aria-hidden="true"><use href="#icon-star"></use></svg>Главный проект</span></div>
                     <div class="project-tech">
                         <span class="tech">Django</span>
                         <span class="tech">DRF</span>
@@ -418,7 +541,7 @@
 
                 <!-- 2. tech-docs-reader -->
                 <div class="project-card">
-                    <div class="project-title">📄 Tech Docs Reader</div>
+                    <div class="project-title"><svg class="icon project-icon" aria-hidden="true"><use href="#icon-file-search"></use></svg><span>Tech Docs Reader</span></div>
                     <div class="project-tech">
                         <span class="tech">FastAPI</span>
                         <span class="tech">PyMuPDF</span>
@@ -435,7 +558,7 @@
 
                 <!-- 3. AI АгроКонсультант -->
                 <div class="project-card">
-                    <div class="project-title">🌾 AI АгроКонсультант</div>
+                    <div class="project-title"><svg class="icon project-icon" aria-hidden="true"><use href="#icon-sprout"></use></svg><span>AI АгроКонсультант</span></div>
                     <div class="project-tech">
                         <span class="tech">React 19</span>
                         <span class="tech">TypeScript</span>
@@ -450,7 +573,7 @@
 
                 <!-- 4. Aroma Beans Consultant -->
                 <div class="project-card">
-                    <div class="project-title">☕ Aroma Beans Consultant</div>
+                    <div class="project-title"><svg class="icon project-icon" aria-hidden="true"><use href="#icon-coffee"></use></svg><span>Aroma Beans Consultant</span></div>
                     <div class="project-tech">
                         <span class="tech">React 19</span>
                         <span class="tech">TypeScript</span>
@@ -465,7 +588,7 @@
 
                 <!-- 5. Telegram-бот «Поэт Манчкин» -->
                 <div class="project-card">
-                    <div class="project-title">🎭 Telegram-бот «Поэт Манчкин»</div>
+                    <div class="project-title"><svg class="icon project-icon" aria-hidden="true"><use href="#icon-bot"></use></svg><span>Telegram-бот «Поэт Манчкин»</span></div>
                     <div class="project-tech">
                         <span class="tech">Aiogram 3</span>
                         <span class="tech">OpenAI API</span>
@@ -478,7 +601,7 @@
 
                 <!-- 6. HH.ru Парсер -->
                 <div class="project-card">
-                    <div class="project-title">📊 HH.ru Парсер + Flask</div>
+                    <div class="project-title"><svg class="icon project-icon" aria-hidden="true"><use href="#icon-chart"></use></svg><span>HH.ru Парсер + Flask</span></div>
                     <div class="project-tech">
                         <span class="tech">Flask</span>
                         <span class="tech">SQLAlchemy</span>
@@ -490,7 +613,7 @@
 
                 <!-- 7. Автотесты Selenium + POM -->
                 <div class="project-card">
-                    <div class="project-title">🧪 Автотесты Selenium + POM</div>
+                    <div class="project-title"><svg class="icon project-icon" aria-hidden="true"><use href="#icon-flask"></use></svg><span>Автотесты Selenium + POM</span></div>
                     <div class="project-tech">
                         <span class="tech">Selenium</span>
                         <span class="tech">Pytest</span>
@@ -503,7 +626,7 @@
 
                 <!-- 8. Русское лото -->
                 <div class="project-card">
-                    <div class="project-title">🎲 Русское лото (ООП)</div>
+                    <div class="project-title"><svg class="icon project-icon" aria-hidden="true"><use href="#icon-dice"></use></svg><span>Русское лото (ООП)</span></div>
                     <div class="project-tech">
                         <span class="tech">Python</span>
                         <span class="tech">ООП</span>
@@ -515,7 +638,7 @@
 
                 <!-- 9. Pythondigest -->
                 <div class="project-card">
-                    <div class="project-title">📰 Pythondigest Парсер + Telegram Bot</div>
+                    <div class="project-title"><svg class="icon project-icon" aria-hidden="true"><use href="#icon-newspaper"></use></svg><span>Pythondigest Парсер + Telegram Bot</span></div>
                     <div class="project-tech">
                         <span class="tech">requests</span>
                         <span class="tech">BeautifulSoup</span>
@@ -528,7 +651,7 @@
         </section>
 
         <section>
-            <h2>📚 Образование и курсы</h2>
+            <h2><svg class="icon section-icon" aria-hidden="true"><use href="#icon-graduation"></use></svg>Образование и курсы</h2>
             <div class="exp-item">
                 <div class="exp-title">Ярославский государственный технический университет</div>
                 <div class="exp-date">2013 — инженер «Технология машиностроения»</div>
@@ -537,23 +660,23 @@
                 <div class="exp-title">Python-разработчик (32 темы)</div>
                 <div class="exp-date">ООО «Терра ЭйАй» · Terra AI University, 26.05.2026</div>
                 <div class="exp-date">16.10.2023 — 24.05.2026 · ООП, Django, Flask, DRF, SQLAlchemy, Docker, тестирование</div>
-                <a href="assets/docs/certificate-python.pdf" class="project-link" target="_blank" rel="noopener">📄 Сертификат →</a>
+                <a href="assets/docs/certificate-python.pdf" class="project-link" target="_blank" rel="noopener"><svg class="icon inline-icon" aria-hidden="true"><use href="#icon-file"></use></svg>Сертификат →</a>
             </div>
             <div class="exp-item">
                 <div class="exp-title">VibeCoding (20 тем)</div>
                 <div class="exp-date">ООО «Терра ЭйАй» · Terra AI University, 26.05.2026</div>
                 <div class="exp-date">18.04.2026 — 26.05.2026 · разработка с AI-ассистентами</div>
-                <a href="assets/docs/certificate-vibecoding.pdf" class="project-link" target="_blank" rel="noopener">📄 Сертификат →</a>
+                <a href="assets/docs/certificate-vibecoding.pdf" class="project-link" target="_blank" rel="noopener"><svg class="icon inline-icon" aria-hidden="true"><use href="#icon-file"></use></svg>Сертификат →</a>
             </div>
             <div class="exp-item">
                 <div class="exp-title">Автоматизация тестирования с помощью Selenium и Python</div>
                 <div class="exp-date">Stepik, 10.01.2025 · с отличием</div>
-                <a href="https://stepik.org/cert/2724437" class="project-link" target="_blank" rel="noopener">📄 Сертификат →</a>
+                <a href="https://stepik.org/cert/2724437" class="project-link" target="_blank" rel="noopener"><svg class="icon inline-icon" aria-hidden="true"><use href="#icon-file"></use></svg>Сертификат →</a>
             </div>
             <div class="exp-item">
                 <div class="exp-title">Docker для начинающих + практический опыт</div>
                 <div class="exp-date">Stepik, 13.04.2025 · с отличием</div>
-                <a href="https://stepik.org/cert/2817987" class="project-link" target="_blank" rel="noopener">📄 Сертификат →</a>
+                <a href="https://stepik.org/cert/2817987" class="project-link" target="_blank" rel="noopener"><svg class="icon inline-icon" aria-hidden="true"><use href="#icon-file"></use></svg>Сертификат →</a>
             </div>
 
             <div class="docs-grid" style="margin-top: 25px;">
@@ -593,7 +716,7 @@
         </section>
 
         <section>
-            <h2>🤝 Стажировка в «Новахим»</h2>
+            <h2><svg class="icon section-icon" aria-hidden="true"><use href="#icon-handshake"></use></svg>Стажировка в «Новахим»</h2>
             <div class="internship-lead">
                 <p>Стажировка по направлению автоматизации обработки прайсов, паспортов и сертификатов, подбора и сопоставления оборудования.</p>
                 <p><strong>Фаза 2</strong> — заявки, товары, поставщики, проверка цен и расчёт КП. <strong>Фаза 3</strong> — подбор оборудования по прайс-листам с интеграцией Bitrix24. Обе системы внедрены в production.</p>
@@ -620,12 +743,12 @@
         </section>
 
         <section>
-            <h2>📫 Контакты</h2>
+            <h2><svg class="icon section-icon" aria-hidden="true"><use href="#icon-mail"></use></svg>Контакты</h2>
             <div class="contacts">
-                <a href="https://github.com/Beluncho" class="contact-btn" target="_blank">🐙 GitHub</a>
-                <a href="https://t.me/Beluncho" class="contact-btn" target="_blank">📱 Telegram</a>
-                <a href="mailto:belov-bk@mail.ru" class="contact-btn">📧 Email</a>
-                <a href="https://yaroslavl.hh.ru/resume/faba2568ff0c3b046e0039ed1f6375784a6b73" class="contact-btn" target="_blank">📄 HH.ru</a>
+                <a href="https://github.com/Beluncho" class="contact-btn" target="_blank"><svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>GitHub</a>
+                <a href="https://t.me/Beluncho" class="contact-btn" target="_blank"><svg class="icon" aria-hidden="true"><use href="#icon-telegram"></use></svg>Telegram</a>
+                <a href="mailto:belov-bk@mail.ru" class="contact-btn"><svg class="icon" aria-hidden="true"><use href="#icon-mail"></use></svg>Email</a>
+                <a href="https://yaroslavl.hh.ru/resume/faba2568ff0c3b046e0039ed1f6375784a6b73" class="contact-btn" target="_blank"><svg class="icon" aria-hidden="true"><use href="#icon-user-file"></use></svg>HH.ru</a>
             </div>
         </section>
     </div>
